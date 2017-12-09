@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shaders_1", "Shaders_1\Shaders_1.csproj", "{08A43CF1-E15A-430D-A0B2-26B6061ABA29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08A43CF1-E15A-430D-A0B2-26B6061ABA29}.Debug|x86.ActiveCfg = Debug|x86
+		{08A43CF1-E15A-430D-A0B2-26B6061ABA29}.Debug|x86.Build.0 = Debug|x86
+		{08A43CF1-E15A-430D-A0B2-26B6061ABA29}.Release|x86.ActiveCfg = Release|x86
+		{08A43CF1-E15A-430D-A0B2-26B6061ABA29}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DC5B9A6-9A6F-40A8-AC72-8924BB61468C}
+	EndGlobalSection
+EndGlobal
