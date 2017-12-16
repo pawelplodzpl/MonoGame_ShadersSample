@@ -30,10 +30,12 @@ namespace Shaders_1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SpriteBatch backgroundSpriteBatch;
+        SpriteBatch backgroundNormalMapperSpriteBatch;
         Texture2D bgTexture;
         Texture2D normalTexture;
         Effect normalMapShader;
+
+        Vector2 gameScreenResolution;
 
 
         Texture2D catTexture;
@@ -47,8 +49,10 @@ namespace Shaders_1
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferHeight = 1024;
-            graphics.PreferredBackBufferWidth = 1024;
+            gameScreenResolution.Y = graphics.PreferredBackBufferHeight = 1024;
+            gameScreenResolution.X = graphics.PreferredBackBufferWidth = 1024;
+
+            
         }
 
         protected override void Initialize()
@@ -62,7 +66,7 @@ namespace Shaders_1
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            backgroundSpriteBatch = new SpriteBatch(GraphicsDevice);
+            backgroundNormalMapperSpriteBatch = new SpriteBatch(GraphicsDevice);
             bgTexture = Content.Load<Texture2D>("154");
             normalTexture = Content.Load<Texture2D>("154_norm");
             normalMapShader = Content.Load<Effect>("NormalMappingShader");
@@ -108,11 +112,17 @@ namespace Shaders_1
 
             Vector2 screenMiddle = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
 
-            // TODO: Add your drawing code here
 
-            backgroundSpriteBatch.Begin();
-            backgroundSpriteBatch.Draw(bgTexture, Vector2.Zero, Color.White);
-            backgroundSpriteBatch.End();
+            normalMapShader.Parameters["NormalTexture"].SetValue(normalTexture);
+            Vector2 dir = catPosition / gameScreenResolution;
+            dir.Normalize();
+            Vector3 lightDir = new Vector3(dir.X, dir.Y, 0.05f);
+            normalMapShader.Parameters["LightDirection"].SetValue(lightDir);
+
+
+            backgroundNormalMapperSpriteBatch.Begin(effect:normalMapShader);
+            backgroundNormalMapperSpriteBatch.Draw(bgTexture, Vector2.Zero, Color.White);
+            backgroundNormalMapperSpriteBatch.End();
 
             spriteBatch.Begin(effect:defaultShader);
             spriteBatch.Draw(catTexture, catPosition, Color.White);
