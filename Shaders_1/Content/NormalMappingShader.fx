@@ -10,8 +10,9 @@
 // Effect applies normalmapped lighting to a 2D sprite.
 
 float3 LightDirection;
-float3 LightColor = 1.0;
-float3 AmbientColor = 0.35;
+float3 LightColor = { 0.1, 0.99, 0.1 };
+//float3 AmbientColor = 0.55;
+float3 AmbientColor = { 0.5, 0.1, 0.99 };
 
 Texture2D SpriteTexture;
 Texture2D NormalTexture;

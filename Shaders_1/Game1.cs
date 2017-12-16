@@ -32,8 +32,11 @@ namespace Shaders_1
         SpriteBatch spriteBatch;
         SpriteBatch backgroundNormalMapperSpriteBatch;
         Texture2D bgTexture;
-        Texture2D normalTexture;
+        Texture2D bgNormalTexture;
         Effect normalMapShader;
+
+        Texture2D shipTexture;
+        Texture2D shipNormalTexture;
 
         Vector2 gameScreenResolution;
 
@@ -68,8 +71,13 @@ namespace Shaders_1
             spriteBatch = new SpriteBatch(GraphicsDevice);
             backgroundNormalMapperSpriteBatch = new SpriteBatch(GraphicsDevice);
             bgTexture = Content.Load<Texture2D>("154");
-            normalTexture = Content.Load<Texture2D>("154_norm");
+            bgNormalTexture = Content.Load<Texture2D>("154_norm");
+            shipTexture = Content.Load<Texture2D>("tribase");
+            shipNormalTexture = Content.Load<Texture2D>("tribaseN");
+
             normalMapShader = Content.Load<Effect>("NormalMappingShader");
+
+
 
             catTexture = Content.Load<Texture2D>("cat");
             defaultShader = Content.Load<Effect>("DefaultShader");
@@ -113,16 +121,26 @@ namespace Shaders_1
             Vector2 screenMiddle = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
 
 
-            normalMapShader.Parameters["NormalTexture"].SetValue(normalTexture);
-            Vector2 dir = catPosition / gameScreenResolution;
+            normalMapShader.Parameters["NormalTexture"].SetValue(bgNormalTexture);
+            Vector2 dir = screenMiddle - (catPosition + new Vector2(catTexture.Width/2, catTexture.Height/2)); // / gameScreenResolution;
             dir.Normalize();
-            Vector3 lightDir = new Vector3(dir.X, dir.Y, 0.05f);
+            Vector3 lightDir = new Vector3(dir.X, -dir.Y, 0.05f);
             normalMapShader.Parameters["LightDirection"].SetValue(lightDir);
 
 
             backgroundNormalMapperSpriteBatch.Begin(effect:normalMapShader);
             backgroundNormalMapperSpriteBatch.Draw(bgTexture, Vector2.Zero, Color.White);
             backgroundNormalMapperSpriteBatch.End();
+
+
+            //normalMapShader.Parameters["NormalTexture"].SetValue(shipNormalTexture);
+            //backgroundNormalMapperSpriteBatch.Begin(effect: normalMapShader);
+            //normalMapShader.Parameters["NormalTexture"].SetValue(shipNormalTexture);
+            //backgroundNormalMapperSpriteBatch.Draw(shipTexture, screenMiddle, Color.White);
+            //backgroundNormalMapperSpriteBatch.End();
+
+
+
 
             spriteBatch.Begin(effect:defaultShader);
             spriteBatch.Draw(catTexture, catPosition, Color.White);
