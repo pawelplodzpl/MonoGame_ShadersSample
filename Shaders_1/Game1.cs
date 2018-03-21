@@ -14,6 +14,9 @@ namespace Shaders_1
         Texture2D catTexture;
         Effect defaultShader;
 
+        Texture2D noise;
+        Texture2D perlinNoise;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -38,6 +41,10 @@ namespace Shaders_1
             bgTexture = Content.Load<Texture2D>("xp_background");
             catTexture = Content.Load<Texture2D>("cat");
             defaultShader = Content.Load<Effect>("DefaultShader");
+
+
+            noise = Content.Load<Texture2D>("noise");
+            perlinNoise = Content.Load<Texture2D>("perlin_noise");
             // TODO: use this.Content to load your game content here
         }
         protected override void UnloadContent()
