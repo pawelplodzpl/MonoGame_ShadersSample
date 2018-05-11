@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Shaders_1")]
-[assembly: AssemblyProduct("Shaders_1")]
+[assembly: AssemblyTitle("MonoGame_SimpleSample")]
+[assembly: AssemblyProduct("MonoGame_SimpleSample")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5017041c-427e-4a8e-b2b2-5cb309456f4b")]
+[assembly: Guid("fa8686aa-82b8-475f-a3f6-991f2fcb7939")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shaders_1
+namespace MonoGame_SimpleSample
 {
 #if WINDOWS || LINUX
     /// <summary>

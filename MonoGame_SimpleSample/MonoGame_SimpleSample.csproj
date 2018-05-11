@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08A43CF1-E15A-430D-A0B2-26B6061ABA29}</ProjectGuid>
+    <ProjectGuid>{5BD93578-97E1-4B43-B7E3-F88B0A73DF2D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shaders_1</RootNamespace>
-    <AssemblyName>Shaders_1</AssemblyName>
+    <RootNamespace>MonoGame_SimpleSample</RootNamespace>
+    <AssemblyName>MonoGame_SimpleSample</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -41,9 +41,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="PlayerSprite.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrollingBackground.cs" />
+    <Compile Include="Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -54,6 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\DefaultShader.fx" />
+    <Content Include="Content\Level1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Portal_ripple.fx" />
+    <Content Include="Content\TorchesLightingShader.fx" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
